@@ -1,0 +1,8 @@
+Script that finds the images that W10 uses for your login screen
+
+It looks into the directory where they are found and adds an image
+extension to them. The files that it adds extensions to must be of at
+least a given initial size (400 KB by default).
+
+Customizables: -the type of image extension (.jpg, .png, etc.)
+               -the threshold for conversion

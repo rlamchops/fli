@@ -1,3 +1,4 @@
+Python 3.5.1
 Script that finds the images that W10 uses for your login screen
 
 It looks into the directory where they are found and adds an image

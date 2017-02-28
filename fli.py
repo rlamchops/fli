@@ -8,7 +8,7 @@ EXTENSION = '.jpg'
 COUNTER = 0
 
 parser = argparse.ArgumentParser(description='Windows 10 Login Image Finder Script')
-parser.add_argument('-t', '--threshold', help = 'Minimum size for conversion, in bytes')
+parser.add_argument('-t', '--threshold', help = 'Minimum size for conversion, in bytes (default: 400KB)')
 parser.add_argument('-e', '--extension', help = 'Extension to give to the found files')
 parser.add_argument('-c', action = 'store_true', help = 'Clears the fli folder before executing')
 args = vars(parser.parse_args())
@@ -24,8 +24,11 @@ if (args['threshold'] != None):
     THRESHOLD = args['threshold']
 
 if (args['c']):
-    print ('hi')
-    exit()
+    if (os.path.isdir('fli')):
+        os.chdir('fli')
+        for i in os.listdir():
+            os.remove(i)
+        os.chdir('..')
 
 #first get the current user
 currentUser = getpass.getuser()

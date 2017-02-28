@@ -1,10 +1,31 @@
 import getpass
 import os
 import shutil
+import argparse
 
 THRESHOLD = 400000
 EXTENSION = '.jpg'
 COUNTER = 0
+
+parser = argparse.ArgumentParser(description='Windows 10 Login Image Finder Script')
+parser.add_argument('-t', '--threshold', help = 'Minimum size for conversion, in bytes')
+parser.add_argument('-e', '--extension', help = 'Extension to give to the found files')
+parser.add_argument('-c', action = 'store_true', help = 'Clears the fli folder before executing')
+args = vars(parser.parse_args())
+
+#are the args not None?
+if (args['extension'] not in [None, '.jpg', '.png', '.jpeg', '.gif', '.bpg']):
+    print ('Extension not supported. Consider running with -h')
+    exit()
+else:
+    EXTENSION = args['extension']
+
+if (args['threshold'] != None):
+    THRESHOLD = args['threshold']
+
+if (args['c']):
+    print ('hi')
+    exit()
 
 #first get the current user
 currentUser = getpass.getuser()

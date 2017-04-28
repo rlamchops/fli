@@ -17,7 +17,7 @@ args = vars(parser.parse_args())
 if (args['extension'] not in [None, '.jpg', '.png', '.jpeg', '.gif', '.bpg']):
     print ('Extension not supported. Consider running with -h')
     exit()
-else:
+elif (args['extension'] != None):
     EXTENSION = args['extension']
 
 if (args['threshold'] != None):
